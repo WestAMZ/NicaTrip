@@ -28,8 +28,9 @@
     
     Site::getNav();
     
-   
-    
-    Site::getProfile();
+    include(HTML_DIR . 'profile.html');
+?>
+<?php
+
     Site::getFooter();
 ?>

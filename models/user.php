@@ -114,7 +114,7 @@
 		//geters
 		function getIdUser()
 		{
-			return $this->id;	
+			return $this->iduser;
 		}
 		function getName()
 		{
@@ -165,7 +165,14 @@
         }
         function getProfilePicture()
         {
-            return $this->profilepicture;
+            if($this->profilepicture == null)
+            {
+                return 'default.png';
+            }
+            else
+            {
+                return $this->profilepicture;
+            }
         }
         function getBirthDay()
         {
@@ -262,6 +269,19 @@
             Connection::close();
             return $user;
         }
-        
+        static function getPhotoCount($iduser)
+        {
+            $quantity = 0;
+            Connection::connect();
+            $query = "SELECT Count(`idpicture`) FROM picture where id_user = '$iduser'";
+            $result = Connection::getConnection()->query($query);
+            if($result->num_rows >0)
+            {
+                $row = $result-fetch_assoc();
+                $quantity = $row['idpicture'];
+            }
+            Connection:close();
+            return quantity;
+        }
 	}
 ?>

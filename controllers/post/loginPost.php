@@ -8,7 +8,7 @@
         $username = Connection :: cleanInput($_POST['username']);
         $password = Connection::codify(Connection :: cleanInput($_POST['password']));
         Connection::connect();
-        $result = Connection::getConnection()->query("SELECT iduser,password,name,last_name FROM user WHERE username ='$username' ");
+        $result = Connection::getConnection()->query("SELECT iduser,password FROM user WHERE username ='$username' ");
         $flag = false;
         while($row = $result-> fetch_assoc() )
         {

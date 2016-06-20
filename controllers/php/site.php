@@ -52,6 +52,9 @@
         {
             include(HTML_DIR . 'profile.html');
         }
-        
+        static function getprofilenotfound()
+        {
+            include(HTML_DIR . 'profilenotfound.html');
+        }
     }
 ?>
