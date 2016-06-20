@@ -23,7 +23,7 @@
 
         //contructor full
         function __construct($iduser,$name,$last_name,$email,
-                           $password,$url,$activationkey,$username,$status,$aboutme,$coverpicture,$profilepicture,$live,$birthday)
+                           $password,$url,$activationkey,$username,$status,$aboutme,$coverpicture,$profilepicture,$birthday,$live)
         {
             $this->iduser = $iduser;
             $this->name = $name;
@@ -206,7 +206,7 @@
             $returned = Connection :: getConnection() -> query("SELECT `email`, `username`, `status` FROM `user` WHERE `username` = '$this->username' OR `email` = '$this->email' LIMIT 1");
             if(!($returned->num_rows >0))
             {
-                $query = "INSERT INTO `user`(`name`, `last_name`, `email`, `password`, `url`, `activationkey`, `username`) VALUES ('$this->name','$this->last_name','$this->email','$this->password','$this->url','$this->activationkey','$this->username')";
+                $query = "INSERT INTO `user`(`name`, `last_name`, `email`, `password`, `url`, `activationkey`, `username`,`birthday`,`live`) VALUES ('$this->name','$this->last_name','$this->email','$this->password','$this->url','$this->activationkey','$this->username',STR_TO_DATE('$this->birthday','%d %m,%Y'),'$this->live')";
                 $result = Connection :: getConnection() -> query($query);
                 $added = true;
             }
@@ -273,15 +273,15 @@
         {
             $quantity = 0;
             Connection::connect();
-            $query = "SELECT Count(`idpicture`) FROM picture where id_user = '$iduser'";
+            $query = "SELECT Count(`idpicture`) as quantity FROM picture where id_user = '$iduser'";
             $result = Connection::getConnection()->query($query);
             if($result->num_rows >0)
             {
-                $row = $result-fetch_assoc();
-                $quantity = $row['idpicture'];
+                $row = $result->fetch_assoc();
+                $quantity = $row['quantity'];
             }
-            Connection:close();
-            return quantity;
+            Connection::close();
+            return $quantity;
         }
 	}
 ?>
