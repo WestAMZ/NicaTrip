@@ -1,0 +1,94 @@
+
+<div id="panelregister" class="container">
+    <form class="forms" action="" method="get" id="registro">
+        <div class="row">
+            <div id="barraregistro" class="center form-title">
+                <h5> Register </h5>
+            </div>
+        </div>
+        <div id="result">
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+
+                <input name="name" id="icon_prefix" type="text" class="validate center" required>
+                <label for="icon_prefix">Name:</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <input name="last_name" id="icon_prefix" type="text" class="validate center" required>
+                <label for="icon_prefix">LastName:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">email</i>
+                <input name="email" id="email" type="email" class="validate center" required>
+                <label class="active" accesskey="active" for="email" data-error="wrong email" data-success="right">Email</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">account_circle</i>
+                <input name="username" id="input_text" class="center" type="text" length="15" required>
+                <label for="input_text">Username:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+               <i class="material-icons prefix">vpn_key</i>
+                <input name="password" type="password" class="validate center" required>
+                <label for="password">Password</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <input name="password2" type="password" class="validate center" required>
+                <label for="password2">Confirm Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">insert_invitation</i>
+                <input name="birthday" type="date" class="datepicker" required>
+                <label for="birthday">BirthDay</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">room</i>
+                <input name="live" type="text" required>
+                <label for="live">Live in</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <p class="center-align">
+                    <button id="submit" class="btn waves-effect waves-light" type="submit" name="action">Register</button>
+                </p>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+                $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 80 // Creates a dropdown of 15 years to control year
+
+  });
+        
+        Materialize.updateTextFields();
+        $('#registro').submit(function () 
+        {
+            result = $('#result');
+            if ($('[name=password]').val() == $('[name=password2]').val()) 
+            {
+                var data = $('#registro').serialize();
+                register('?post=register', data, result, $('#myModal'), $('#message'));
+            } 
+            else 
+            {
+                $('#message').html('Passwords no match !!');
+                 $('#myModal').openModal();
+            }
+            return false;
+        });
+
+    });
+</script>

@@ -1,0 +1,220 @@
+/*
+  estilos NicaTrip
+*/
+/*
+    estilos nav
+*/
+
+#main_nav *
+{
+	padding: 0px;
+	margin: 0px;
+    transition-property: height,left,right;
+    transition-duration: 2s;
+}
+#main_nav
+{
+	background: rgba(0,0,0,0.6);
+	border-bottom: solid rgb(0, 128, 255) 10px;
+	width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+	left: 0px;
+}
+.fixed_nav
+{
+    position: fixed !important;
+	top: 0px !important;
+	left: 0px !important;
+    height: auto !important;
+}
+.fixed_nav img , .fixed_nav h1
+{
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    font-size: 30px !important;
+    margin-top: 5px;
+}
+#nav_left
+{
+	text-align: center;
+}
+.nav_bar h1
+{
+	color:white;
+    font-size: 50px;
+	margin:0px; 
+}
+#nav_right
+{
+	text-align: center;
+}
+#nav_right ul
+{
+	display: inline-block;
+	list-style: none;
+}
+#nav_right li
+{
+	display: inline-block;
+}
+#nav_right a
+{
+	
+	display: inline-block;
+	color: white;
+	font-size: 20px;
+	transition: all;
+	-moz-transition-duration:1s;
+	-webkit-transition-duration:1s;
+	padding:20px;
+	margin:0px; 
+}
+#nav_right a:hover
+{
+	
+	display: inline-block;
+	color: black;
+	background: rgb(0, 128, 255);
+}
+
+
+
+/*
+    estilos header
+*/
+#main_header
+{
+    height: 100vh;
+    width: 100%;
+    border: solid 0px;
+    background: url(../img/img.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/*
+    estilos footer
+*/
+#footer *
+{
+    color: white;
+}
+#footer
+{
+    background: #242424;
+    border-top: solid 10px blueviolet;
+    left: 0px;
+}
+#footer h1
+{
+    color: rgb(0, 128, 255);
+    font-family: fantasy;
+    font-size: 20px;
+}
+footer #copy
+{
+    color: rgb(0, 128, 255);
+    text-align: center;
+    padding: 20px;
+    height: 100px;
+    width: 100%;
+    border-top: 1px solid  #626262;
+}
+/*
+    estilos login
+*/
+#login_form *
+{
+    font-size: 20px;
+    font-weight: normal;
+}
+#login_form
+{
+    border:  solid 1px #c2c2c2;
+    border-radius: 15px;
+    padding: 30px;
+    width: 450px;
+    box-shadow: 2px 2px 5px grey;
+    margin: 200px auto;
+}
+#login_form input
+{
+    width: 100%;
+}
+/*
+    estilos registro
+*/
+#register_form *
+{
+    font-size: 20px;
+    font-weight: normal;
+}
+#register_form
+{
+    border:  solid 1px #c2c2c2;
+    border-radius: 15px;
+    padding: 30px;
+    width: 450px;
+    box-shadow: 2px 2px 5px grey;
+    margin: 200px auto;
+}
+#register_form input
+{
+    width: 100%;
+    margin-bottom: 20px;
+}
+/*
+     estilos social nav
+*/
+#social_nav *
+{
+    padding: 0px;
+    margin: 0px;
+}
+#social_nav
+{
+    height: 150px;
+    width: 60px;
+    position: fixed;
+    left: -40px;
+    top: 260px;
+    background: #7b7b7b;
+    transition-timing-function: ease-in;
+    transition-duration: 0.5s;
+}
+#social_nav img
+{
+    height: 45px;
+    width: 45px;
+}
+#social_nav .social_btn
+{
+    display: block;
+    padding: 5px;
+    border-right:20px solid; 
+    background: #4a4a4a;
+    transition: all;
+    transition-timing-function: ease-in;
+    transition-duration: 0.5s;
+}
+#social_nav:hover 
+{
+    left: 0px;
+}
+#social_nav .social_btn:hover
+{
+    width: 70px;
+}
+#facebook:hover
+{
+    background: #003afc;
+    border-right: #001e84 solid 15px;
+}
+#twitter:hover
+{
+    background: #4ca6ff;
+    border-right: #387dc1 solid 15px;
+}
