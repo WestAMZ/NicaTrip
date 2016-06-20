@@ -1,5 +1,14 @@
+<?php
+    include(MODELS_DIR . 'picture.php');
+    $pictures = Picture :: getPictures();
+    foreach ($pictures as $picture)
+    { ?>
+
+    }
+?>
 <div class="row">
-    <form class="col s12 m4 ">
+    <form class="col s12 m4 commentform">
+       <input type="hidden" name='id_post' value="">
         <div class="card">
             <div class="card-content" style="margin-bottom:0px">
                 <div class="row">
@@ -28,7 +37,7 @@
                     <a class="activator" style="cursor:pointer">Comments</a>
                 </div>
                 <div class="input-field col s8">
-                    <input id="profile-comment" type="text" class="validate margin">
+                    <input id="profile-comment" type="text" class="validate margin commentbox">
                     <label for="profile-comment">Comment</label>
                 </div>
             </div>
@@ -52,7 +61,7 @@
         </div>
     </form>
 
-    <div class="col s12 m4 ">
+    <form class="col s12 m4 commentform">
         <div class="card">
             <div class="card-content" style="margin-bottom:0px">
                 <div class="row">
@@ -81,14 +90,14 @@
                     <a href="#">Comments</a>
                 </div>
                 <div class="input-field col s8">
-                    <input id="profile-comment" type="text" class="validate margin">
+                    <input id="profile-comment" type="text" class="validate margin commentbox">
                     <label for="profile-comment">Comment</label>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 
-    <div class="col s12 m4 ">
+    <form class="col s12 m4 commentform">
         <div class="card">
             <div class="card-content" style="margin-bottom:0px">
                 <div class="row">
@@ -117,16 +126,35 @@
                     <a href="#">Comments</a>
                 </div>
                 <div class="input-field col s8">
-                    <input id="profile-comment" type="text" class="validate margin">
+                    <input id="profile-comment" type="text" class="validate margin commentbox">
                     <label for="profile-comment">Comment</label>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 
 <script>
     $(document).ready(function () {
         $('textarea#textarea1').characterCounter();
     });
+
+    $(document).ready(function () {
+        $('.commentbox').keypress(function(e){
+            var code = e.keyCode || e.which;
+            if(code == 13)
+            {
+                alert("Testing");
+            }
+        });
+    });
+
+    $(document).ready(function(){
+        $('.commentform').submit(
+            var data = $(this).serialize();
+            addComment('?post=comment',data,null);
+            return false;
+        );
+    })
+
 </script>

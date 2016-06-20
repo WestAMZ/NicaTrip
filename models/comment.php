@@ -88,7 +88,7 @@ static function getComment()
 function saveComment()
 {
     Connection :: connect();
-    $query = "INSERT INTO `comment`(`idcomment`, `content`, `date`, `user_iduser`, `status`, `post_idpost`) VALUES ('$this->idComment', '$this->content', '$this->comment_date', '$this->idUser', '$this->status', '$this->idPost')";
+    $query = "INSERT INTO `comment`(`id_comment`, `content`, `date`, `id_user`, `status`, `id_post`) VALUES ('$this->idComment', '$this->content', '$this->comment_date', '$this->idUser', '$this->status', '$this->idPost')";
     $result = Connection :: getConnection() -> query($query);
     Connection :: close();
 }
