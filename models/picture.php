@@ -90,10 +90,17 @@ class Picture
             $result = Connection :: getConnection() -> query($query);
             Connection :: close();
         }
-        function getPictureByPostId()
+        function getPictureByPostId($post_id)
         {
             Connection::connect();
-            $query = '';
+            $query = "SELECT `idpicture`, `url`, `date`, `user_idUser`, `status`, `Post_idpost` FROM `picture` where 'id_post' = '$post_id' ";
+            $result = Connection :: getConnection() -> query($query);
+            $pictures = array();
+            while($row = $result->fetch_assoc())
+            {
+                $picture = new Picture($row['idpicture'],$row['url'],$row['date'],$row['user_idUser'],$row['status'],$row['Post_idpost']);
+                array_push($pictures,$picture);
+            }
             Connection::getConnection()->query();
             Coenection::close();
         }
