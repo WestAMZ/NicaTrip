@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
 <?php
     class Site
     {
@@ -56,15 +53,5 @@
         {
             include(HTML_DIR . 'profile.html');
         }
-<<<<<<< HEAD
-
     }
-
-=======
-        static function getprofilenotfound()
-        {
-            include(HTML_DIR . 'profilenotfound.html');
-        }
-    }
->>>>>>> origin/master
 ?>
