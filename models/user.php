@@ -23,7 +23,11 @@
 
         //contructor full
         function __construct($iduser,$name,$last_name,$email,
+<<<<<<< HEAD
                            $password,$url,$activationkey,$username,$status,$aboutme,$coverpicture,$profilepicture,$birthday,$live)
+=======
+                           $password,$url,$activationkey,$username,$status,$aboutme,$coverpicture,$profilepicture,$live,$birthday)
+>>>>>>> origin/master
         {
             $this->iduser = $iduser;
             $this->name = $name;
@@ -114,7 +118,11 @@
 		//geters
 		function getIdUser()
 		{
+<<<<<<< HEAD
 			return $this->iduser;
+=======
+			return $this->id;
+>>>>>>> origin/master
 		}
 		function getName()
 		{
@@ -165,6 +173,7 @@
         }
         function getProfilePicture()
         {
+<<<<<<< HEAD
             if($this->profilepicture == null)
             {
                 return 'default.png';
@@ -173,6 +182,9 @@
             {
                 return $this->profilepicture;
             }
+=======
+            return $this->profilepicture;
+>>>>>>> origin/master
         }
         function getBirthDay()
         {
@@ -206,7 +218,11 @@
             $returned = Connection :: getConnection() -> query("SELECT `email`, `username`, `status` FROM `user` WHERE `username` = '$this->username' OR `email` = '$this->email' LIMIT 1");
             if(!($returned->num_rows >0))
             {
+<<<<<<< HEAD
                 $query = "INSERT INTO `user`(`name`, `last_name`, `email`, `password`, `url`, `activationkey`, `username`,`birthday`,`live`) VALUES ('$this->name','$this->last_name','$this->email','$this->password','$this->url','$this->activationkey','$this->username','$this->birthday','$this->live')";
+=======
+                $query = "INSERT INTO `user`(`name`, `last_name`, `email`, `password`, `url`, `activationkey`, `username`) VALUES ('$this->name','$this->last_name','$this->email','$this->password','$this->url','$this->activationkey','$this->username')";
+>>>>>>> origin/master
                 $result = Connection :: getConnection() -> query($query);
                 $added = true;
             }
@@ -269,6 +285,7 @@
             Connection::close();
             return $user;
         }
+<<<<<<< HEAD
         static function getPhotoCount($iduser)
         {
             $quantity = 0;
@@ -353,5 +370,8 @@
             Connection::close();
             return $quantity;
         }
+=======
+
+>>>>>>> origin/master
 	}
 ?>

@@ -5,5 +5,5 @@
     Site::getSocialNav();
     Site::getLogin();
     Site::getFooter();
-    
+
 ?>

@@ -3,5 +3,5 @@
     Site::getNav();
     Site::getGallery();
     Site::getFooter();
-    
+
 ?>

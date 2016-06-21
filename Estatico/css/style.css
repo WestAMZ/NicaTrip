@@ -45,7 +45,7 @@
 {
 	color:white;
     font-size: 50px;
-	margin:0px; 
+	margin:0px;
 }
 #nav_right
 {
@@ -62,7 +62,7 @@
 }
 #nav_right a
 {
-	
+
 	display: inline-block;
 	color: white;
 	font-size: 20px;
@@ -70,11 +70,11 @@
 	-moz-transition-duration:1s;
 	-webkit-transition-duration:1s;
 	padding:20px;
-	margin:0px; 
+	margin:0px;
 }
 #nav_right a:hover
 {
-	
+
 	display: inline-block;
 	color: black;
 	background: rgb(0, 128, 255);
@@ -194,13 +194,13 @@ footer #copy
 {
     display: block;
     padding: 5px;
-    border-right:20px solid; 
+    border-right:20px solid;
     background: #4a4a4a;
     transition: all;
     transition-timing-function: ease-in;
     transition-duration: 0.5s;
 }
-#social_nav:hover 
+#social_nav:hover
 {
     left: 0px;
 }

@@ -1,10 +1,10 @@
 <?php
     include(MODELS_DIR . 'user.php');
-    
-    
+
+
     if($_POST)
     {
-        
+
         $username = Connection :: cleanInput($_POST['username']);
         $password = Connection::codify(Connection :: cleanInput($_POST['password']));
         Connection::connect();
@@ -27,7 +27,7 @@
         Connection::close();
         if($flag)
         {
-            //logueado correctamente 
+            //logueado correctamente
             echo('1');
         }
         else

@@ -6,7 +6,7 @@
     /*
         Directoríos
     */
-    
+
     define('HTML_DIR','views/html/');
     define('CSS_DIR','views/css/');
     define('PHP_DIR','controllers/php/');
@@ -17,7 +17,7 @@
     define('AJAX_DIR','controllers/ajax/');
     define('POST_DIR','controllers/post/');
     define('IMG_DIR','views/img/');
-    
+
     /*
         Directorio de archivos alojados
     */
@@ -40,7 +40,7 @@
     define('SITE_NAME','NicaTrip');
     define('SITE_URL','http://localhost/NicaTrip/');
     define('COPY_LIC','All rights reserved  '. date('Y',time()));
-    
+
     /*
         Carga de librerías externas php
     */

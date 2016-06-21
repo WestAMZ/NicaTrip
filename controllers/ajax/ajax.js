@@ -86,3 +86,37 @@ function login(url,data,result,modal,message_area_modal)
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send(data);
 }
+function addComment(url,data,result)
+{
+
+    http = Connect();
+    http.onreadystatechange = function()
+    {
+        if(http.readyState == 4 && http.status ==200)
+        {
+            if(result != null)
+            {
+                if(http.responseText == 1)
+                {
+                    //Se ingreso el comentario
+                    //result.html('');
+                }
+                else
+                {
+                    // No se ingresa el comentario
+                    //result.html(http.responseText);
+                }
+            }
+        }
+        else if(http.readyState != 4)
+        {
+            text = '<div class="alert alert-dismissible alert-info">'+
+            '<button type="button" class="close" data-dismiss="alert">&times;</button>'+
+            '<img src="views/img/load.gif"></img> The request is being processed...</div>';
+            result.html(text);
+        }
+    }
+    http.open('POST',url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send(data);
+}

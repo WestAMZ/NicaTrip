@@ -1,5 +1,12 @@
-<div class="row">
-    <form class="col s12 m4 ">
+<?php
+    include(MODELS_DIR . 'picture.php');
+    $pictures = Picture :: getPictures();
+    echo('<div class="row">');
+    foreach ($posts as $post)
+    { ?>
+
+    <form class="col s12 m4 commentform">
+       <input type="hidden" name='<?php echo($post->getIdPost())?>t' value="">
         <div class="card">
             <div class="card-content" style="margin-bottom:0px">
                 <div class="row">
@@ -28,7 +35,7 @@
                     <a class="activator" style="cursor:pointer">Comments</a>
                 </div>
                 <div class="input-field col s8">
-                    <input id="profile-comment" type="text" class="validate margin">
+                    <input id="profile-comment" type="text" class="validate margin commentbox">
                     <label for="profile-comment">Comment</label>
                 </div>
             </div>
@@ -52,81 +59,33 @@
         </div>
     </form>
 
-    <div class="col s12 m4 ">
-        <div class="card">
-            <div class="card-content" style="margin-bottom:0px">
-                <div class="row">
-                    <div class="col s2">
-                        <img src="views/img/gerardo.jpg" class="circle responsive-img materialboxed" style="cursor:pointer">
-                    </div>
-                    <div class="col s10">
-                        <p class="grey-text text-darken-4 margin">Eleazar Carballo</p>
-                        <span class="grey-text text-darken-1 ultra-small">Shared - 01 Junio 2016</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12">
-                        <p>Una belleza de volcan que se encuentra activo en el pais :D !!.. Nicaragua Tierra de Lagos y Volcanes </p>
-                    </div>
-                </div>
-            </div>
-            <div class="card-image">
-                <img class="materialboxed" src="views/img/imagen3.jpg" height="300px" style="cursor:pointer">
-                <span class="card-title">
-                Volcan Masaya</span>
-            </div>
-            <div class="card-action row">
-                <div class="col s4 card-action-share">
-                    <a href="#">Like</a>
-                    <a href="#">Comments</a>
-                </div>
-                <div class="input-field col s8">
-                    <input id="profile-comment" type="text" class="validate margin">
-                    <label for="profile-comment">Comment</label>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?
+    }
+    php?>
 
-    <div class="col s12 m4 ">
-        <div class="card">
-            <div class="card-content" style="margin-bottom:0px">
-                <div class="row">
-                    <div class="col s2">
-                        <img src="views/img/westly.jpg" class="circle responsive-img">
-                    </div>
-                    <div class="col s10">
-                        <p class="grey-text text-darken-4 margin">Westly Meza</p>
-                        <span class="grey-text text-darken-1 ultra-small">Shared - 04 Junio 2016</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12">
-                        <p> Playas virgenes, ubicadas en Tola !!.. toda una belleza sin explorar :) !!..</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card-image">
-                <img class="materialboxed" src="views/img/playa_maderas.jpg" height="300px" style="cursor:pointer">
-                <span class="card-title">
-                PLaya Madera</span>
-            </div>
-            <div class="card-action row">
-                <div class="col s4 card-action-share">
-                    <a href="#">Like</a>
-                    <a href="#">Comments</a>
-                </div>
-                <div class="input-field col s8">
-                    <input id="profile-comment" type="text" class="validate margin">
-                    <label for="profile-comment">Comment</label>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <script>
     $(document).ready(function () {
         $('textarea#textarea1').characterCounter();
     });
+
+    $(document).ready(function () {
+        $('.commentbox').keypress(function(e){
+            var code = e.keyCode || e.which;
+            if(code == 13)
+            {
+                alert("Testing");
+            }
+        });
+    });
+
+    $(document).ready(function(){
+        $('.commentform').submit(
+            var data = $(this).serialize();
+            addComment('?post=comment',data,null);
+            return false;
+        );
+    })
+
 </script>

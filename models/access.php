@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
     Class Access
 */
 class Acces
@@ -21,7 +21,7 @@ class Acces
         $this->dateEnd = $dateEnd;
         $this->idUser = $idUser;
     }
-// Setters Methods 
+// Setters Methods
     function setIdAccess($idAcess)
     {
         $this->idAccess = $idAccess;
@@ -46,7 +46,7 @@ class Acces
     {
         $this->idUser = $idUser;
     }
-// Getters Methods 
+// Getters Methods
     function getIdAccess()
     {
         return $this->idAccess;
@@ -92,5 +92,5 @@ function saveAccess()
             $result = Connection :: getConnection() -> query($query);
             Connection :: close();
         }
-}   
+}
 ?>

@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
     Class video
 */
 class Video
@@ -68,7 +68,7 @@ static function getVideos()
             $videos = array();
             while($row = $result->fetch_assoc())
             {
-                $video = new User($row['idvideo'],$row['daste'],$row['url'],$row['user_iduser'],$row['status'],$row['Post_idpost']); 
+                $video = new User($row['idvideo'],$row['daste'],$row['url'],$row['user_iduser'],$row['status'],$row['Post_idpost']);
                 array_push($videos,$video);
             }
             Connection :: close();

@@ -13,7 +13,7 @@
             $user->setIdUser($id);
             $user->setActivationKey($key);
             $user->updateUser();
-            //correo destino , nombre de usuario , password , link de activacion 
+            //correo destino , nombre de usuario , password , link de activacion
             $activation_url = SITE_URL . "?view=activation&key=" . $user->getActivationKey();
             MailSender::sendCountInfo($user->getEmail(),$user->getUserName(),$_POST['password'], $activation_url);
             echo('1');
@@ -22,12 +22,12 @@
         {
             echo($user->add_error());
         }
-        
+
     }
     function generateKey($username)
     {
         $id = getIdOf($username);
-        $key = Connection::codify( $id . $username);    
+        $key = Connection::codify( $id . $username);
         return $key;
     }
     //obtiene Id de user dado un username
