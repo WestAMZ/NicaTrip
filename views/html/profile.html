@@ -14,7 +14,6 @@
                 <div class="row">
                     <div class="col s12 m3 offset-s2 offset-m1">
                         <h4 class="card-title grey-text center"><?php echo($user->getName() . ' ' . $user->getLastName())?></h4>
-                        <p class="center medium-small">CE0 & COUFUNDER</p>
                     </div>
                     <div class="col s12 m3 offset-s2 offset-m1">
                         <h4 class="card-title grey-text center"><?php echo($user->getPhotoCount($user->getIdUser()))?></h4>
@@ -34,6 +33,20 @@
     <!-- this part is the content -->
 
     <div class="row">
+
+        <script>
+            $(document).ready(function () {
+                $('#login_form').submit(function () {
+                    var result = $('#result');
+                    var data = $('#login_form').serialize();
+                    login('?post=login', data, result, $('#myModal'), $('#message'));
+                    return false;
+                });
+
+                Materialize.updateTextFields();
+            });
+        </script>
+
 
 
 
@@ -217,7 +230,7 @@
                 </form>
 
                 <!-- the content of the photos tab -->
-                <div id="Photos" class="tab-content col s12  grey lighten-4 z-depth-3">
+                <form id="Photos" class="tab-content col s12  grey lighten-4 z-depth-3">
                     <div class="row">
                         <div class="col s2">
                             <img src="<?php echo(PROFILE_DIR . $user->getProfilePicture())?>" alt="" class="circle responsive-img valign" style="margin-top:20px">
@@ -236,18 +249,24 @@
                             <i class="material-icons">room</i>
                         </div>
                         <div class="col s12 m6 right-align">
-                            <a class="waves-effect waves-light btn">
-                                <i class="material-icons">attach_file</i>attach
-                            </a>
-                            <a class="waves-effect waves-light btn">
-                                <i class="material-icons">send</i>Post
-                            </a>
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span>File</span>
+                                    <input type="file" name="upload_img">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                                </div>
+                            </div>
+                            <button type='submit' class="waves-effect waves-light btn" value='Upload picture' name="submit">Post
+                                <i class="material-icons right">send</i>
+                            </button>
                         </div>
                     </div>
-                </div>
+                </form>
 
                 <!-- the content of the video tab-->
-                <div id="Videos" class="tab-content col s12  grey lighten-4 z-depth-3">
+                <form id="Videos" class="tab-content col s12  grey lighten-4 z-depth-3">
                     <div class="row">
                         <div class="col s2">
                             <img src="<?php echo(PROFILE_DIR . $user->getProfilePicture())?>" alt="" class="circle responsive-img valign" style="margin-top:20px">
@@ -271,7 +290,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </form>
 
             </div>
 
@@ -428,5 +447,16 @@
             full_width: true
         });
         $('ul.tabs').tabs();
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#Photos').submit(function () {
+            var result = $('#result');
+            var data = $('#Photos').serialize();
+            login('?post=img', data, result, $('#myModal'), $('#message'));
+            return false;
+        });
     });
 </script>

@@ -30,6 +30,7 @@
     include(HTML_DIR . 'profile.html');
 ?>
 <?php
+    Site::getModal();
     Site::getFooter();
 ?>
 

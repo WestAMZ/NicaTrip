@@ -14,9 +14,10 @@ function register(url, data, result, modal, message_area_modal) {
     http = Connect();
     http.onreadystatechange = function () {
         if (http.readyState == 4 && http.status == 200) {
-            if (result != null) {
+            if (result != null)
+            {
                 if (http.responseText == 1) {
-                    message_area_modal.html('<strong>You hava been registered suscessfull!!</strong><br> please check your email, where you will get an activation link);
+                    message_area_modal.html('<strong>You hava been registered suscessfull!!</strong><br> please check your email, where you will get an activation link');
                     modal.openModal();
                     result.html('');
                 } else {
@@ -91,27 +92,22 @@ function addComment(url, data, result) {
     http.send(data);
 }
 
-function uploadPicture(url, data, result) {
+function uploadPicture(url, data ,  modal, message_area_modal )
+{
 
     http = Connect();
     http.onreadystatechange = function () {
         if (http.readyState == 4 && http.status == 200) {
-            if (result != null) {
-                 if (http.responseText == 1) {
-                    message_area_modal.html('<strong> Image uploaded sucessfull!!');
-                    modal.openModal();
-                    result.html('');
-                } else {
-                    tmessage_area_modal.html('<strong>Error to upload file!!');
-                    modal.openModal();
-                    result.html('');
-                }
+            if (http.responseText != null)
+            {
+                message_area_modal.html('<strong> '+ http.responseText +' </strong>');
+                modal.openModal();
             }
         } else if (http.readyState != 4) {
             text = '<div class="alert alert-dismissible alert-info">' +
                 '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
                 '<img src="views/img/load.gif"></img> The request is being processed...</div>';
-            result.html(text);
+
         }
     }
     http.open('POST', url);
