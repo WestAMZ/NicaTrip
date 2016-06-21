@@ -3,7 +3,7 @@
     Class Post
 */
 class Post
-{   
+{
     var $idPost;
     var $titulo;
     var $post_date;
@@ -88,7 +88,7 @@ static function getPosts()
             $posts = array();
             while($row = $result->fetch_assoc())
             {
-                $post = new Post($row['idpost'],$row['titulo'],$row['date'],$row['content'],$row['user_iduser'],$row['status'],$row['url']); 
+                $post = new Post($row['idpost'],$row['titulo'],$row['date'],$row['content'],$row['user_iduser'],$row['status'],$row['url']);
                 array_push($posts,$post);
             }
             Connection :: close();

@@ -20,7 +20,7 @@ class Comment
         $this->idUser = $idUser;
         $this->idPost = $idPost;
     }
-//Setters Methods 
+//Setters Methods
     function setIdComment($idComment)
     {
         $this->idComment = $idComment;
@@ -70,7 +70,7 @@ class Comment
     {
         return $this->idPost;
     }
-    
+
 static function getComment()
 {
     Connection :: connect();

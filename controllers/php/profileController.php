@@ -9,7 +9,7 @@
     {
         if(isset($_SESSION['username']))
         {
-            $user = User::getUserByUserName($_SESSION['username']);   
+            $user = User::getUserByUserName($_SESSION['username']);
         }
         else
         {
@@ -24,12 +24,12 @@
     {
         Site::getHead($user->getName() .' '. $user->getLastName());
     }
-    
-    
+
+
     Site::getNav();
-    
-   
-    
+
+
+
     Site::getProfile();
     Site::getFooter();
 ?>

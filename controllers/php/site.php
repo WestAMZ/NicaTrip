@@ -27,7 +27,7 @@
         static function getSocialNav()
         {
             include(HTML_DIR . 'social_nav.html');
-        }   
+        }
         static function getSlide()
         {
             include(HTML_DIR . 'slide.html');
@@ -52,6 +52,6 @@
         {
             include(HTML_DIR . 'profile.html');
         }
-        
+
     }
 ?>

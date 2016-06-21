@@ -6,7 +6,7 @@
 
 body
 {
-    background-color: #eaeaea;    
+    background-color: #eaeaea;
 }
 .container-fluid, .container
 {
@@ -16,7 +16,7 @@ body
 .form
 {
     background: white;
-} 
+}
 .nav-logo
 {
     width: 50px;
@@ -74,13 +74,13 @@ body
 {
     display: block;
     padding: 5px;
-    border-right:20px solid white; 
+    border-right:20px solid white;
     background: #000000;
     transition: all;
     transition-timing-function: ease-in;
     transition-duration: 0.5s;
 }
-#social_nav:hover 
+#social_nav:hover
 {
     left: 0px;
 }
@@ -107,7 +107,7 @@ body
 }
 #footer
 {
-   
+
     background: rgb(0, 128, 255);
     left: 0px;
 }
@@ -130,7 +130,7 @@ footer #copy
 footer #copy h1
 {
     color: rgb(0, 128, 255);
-    
+
 }
 /*
     responsive menu
@@ -149,13 +149,13 @@ footer #copy h1
 }
 .responsiveMenu
 {
-    
+
     top: 70px;
     right: 0px !important;
     background: black;
     box-shadow: 0px 0px 10px black;
 }
-#hiddenMenu ul 
+#hiddenMenu ul
 {
     list-style: none;
 }
@@ -175,7 +175,7 @@ footer #copy h1
 	-moz-transition-duration:1s;
 	-webkit-transition-duration:1s;
 	padding:20px;
-	margin:0px; 
+	margin:0px;
     color: white;
 }
 #hiddenMenu a:hover
@@ -183,7 +183,7 @@ footer #copy h1
     background: white;
     color:black;
     text-decoration: none;
-    
+
 }
 #nav_btn
 {
@@ -263,7 +263,7 @@ this part is about the login menu RIcardo
 #confirmdialog
 {
     border-radius: 10px !important;
-    
+
 }
 #fondoconfirm
 {
@@ -285,14 +285,14 @@ this part is about the login menu RIcardo
     margin: 0px auto;
     padding: 30px;
     padding-top: 0px;
-    
+
 }
 /*
     ______________________________responsive______________________________
 */
 @media screen and (max-width: 800px)
 {
-    
+
     #social_nav
     {
         display: none;

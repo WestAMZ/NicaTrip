@@ -12,7 +12,7 @@
             Connection::getConnection()->query("UPDATE `user` SET `status`='1' WHERE `activationkey` = '$key' ");
             if(Connection::getConnection()->affected_rows > 0)
             {
-                $message = 'Congratulations you had been successfully registered. Now you can enjoy all the content in this website :D !!. Please go to the link below for access to your account.';    
+                $message = 'Congratulations you had been successfully registered. Now you can enjoy all the content in this website :D !!. Please go to the link below for access to your account.';
             }
             Connection::close();
         }
@@ -38,6 +38,6 @@
         </div>
     </div>
     </div>
-<?php    
+<?php
     Site::getFooter();
 ?>

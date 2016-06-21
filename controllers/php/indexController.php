@@ -5,5 +5,5 @@
     /*Site::getSlide();*/
     Site::getSocialNav();
     Site::getFooter();
-    
+
 ?>

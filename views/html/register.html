@@ -72,17 +72,17 @@
     selectYears: 80 // Creates a dropdown of 15 years to control year
 
   });
-        
+
         Materialize.updateTextFields();
-        $('#registro').submit(function () 
+        $('#registro').submit(function ()
         {
             result = $('#result');
-            if ($('[name=password]').val() == $('[name=password2]').val()) 
+            if ($('[name=password]').val() == $('[name=password2]').val())
             {
                 var data = $('#registro').serialize();
                 register('?post=register', data, result, $('#myModal'), $('#message'));
-            } 
-            else 
+            }
+            else
             {
                 $('#message').html('Passwords no match !!');
                  $('#myModal').openModal();

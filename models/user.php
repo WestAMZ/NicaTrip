@@ -2,7 +2,7 @@
 	/*
 		Usuarios
 	*/
-    
+
 	class User
 	{
 		var $iduser;
@@ -109,44 +109,44 @@
         {
             $this->live = $live;
         }
-        
-        
+
+
 		//geters
 		function getIdUser()
 		{
-			return $this->id;	
+			return $this->id;
 		}
 		function getName()
 		{
-			return $this->name;	
+			return $this->name;
 		}
 		function getLastName()
 		{
-			return $this->last_name;	
+			return $this->last_name;
 		}
 		function getEmail()
 		{
-			return $this->email;	
+			return $this->email;
 		}
 		function getPassword()
 		{
-			return $this->password;	
+			return $this->password;
 		}
         function getActivationkey()
 		{
-			return $this->activationkey;	
+			return $this->activationkey;
 		}
         function getUserName()
 		{
-			return $this->username;	
+			return $this->username;
 		}
         function getStatus()
 		{
-			return $this->status;	
+			return $this->status;
 		}
         function add_error()
 		{
-			return $this->add_error;	
+			return $this->add_error;
 		}
         function getAboutme()
         {
@@ -160,7 +160,7 @@
             }
             else
             {
-                return $this->coverpicture;   
+                return $this->coverpicture;
             }
         }
         function getProfilePicture()
@@ -186,7 +186,7 @@
             $users = array();
             while($row = $result->fetch_assoc())
             {
-                $user = new User($row['iduser'],$row['name'],$row['last_name'],$row['email'],$row['password'],$row['url'],$row['activationkey'],$row['username'],$row['status'],$row['aboutme'],$row['coverpicture'],$row['profilepicture'],$row['birthday'],$row['live']); 
+                $user = new User($row['iduser'],$row['name'],$row['last_name'],$row['email'],$row['password'],$row['url'],$row['activationkey'],$row['username'],$row['status'],$row['aboutme'],$row['coverpicture'],$row['profilepicture'],$row['birthday'],$row['live']);
                 array_push($users,$user);
             }
             Connection :: close();
@@ -207,7 +207,7 @@
             {
                 //menajes de error en caso de no haberse guardado
                 $obj = $returned->fetch_assoc();
-                if(strtolower($obj['email']) == strtolower($this->email)) 
+                if(strtolower($obj['email']) == strtolower($this->email))
                 {
                     $this->add_error = '<div class="alert alert-dismissible alert-danger">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -225,15 +225,15 @@
         }
         function updateUser()
         {
-            
+
             Connection::connect();
             $query = "UPDATE `user` SET `name`= '$this->name',`last_name`='$this->last_name',`email`='$this->email',`password`='$this->password',`url`='$this->url',`activationkey`='$this->activationkey',`username`='$this->username',`status`='$this->status' WHERE `iduser` = '$this->iduser' ";
             $result = Connection::getConnection()->query($query);
-            
+
             Connection::close();
-            
+
         }
-        
+
         static function getUserByUserName($username)
         {
             $user = null;
@@ -243,7 +243,7 @@
             if( $result->num_rows > 0)
             {
                 $row = $result->fetch_assoc();
-                $user = new User($row['iduser'],$row['name'],$row['last_name'],$row['email'],$row['password'],$row['url'],$row['activationkey'],$row['username'],$row['status'],$row['aboutme'],$row['coverpicture'],$row['profilepicture'],$row['birthday'],$row['live']);   
+                $user = new User($row['iduser'],$row['name'],$row['last_name'],$row['email'],$row['password'],$row['url'],$row['activationkey'],$row['username'],$row['status'],$row['aboutme'],$row['coverpicture'],$row['profilepicture'],$row['birthday'],$row['live']);
             }
             Connection::close();
             return $user;
@@ -257,11 +257,11 @@
             if( $result->num_rows > 0)
             {
                 $row = $result->fetch_assoc();
-                $user = new User($row['iduser'],$row['name'],$row['last_name'],$row['email'],$row['password'],$row['url'],$row['activationkey'],$row['username'],$row['status'],$row['aboutme'],$row['coverpicture'],$row['profilepicture'],$row['birthday'],$row['live']);   
+                $user = new User($row['iduser'],$row['name'],$row['last_name'],$row['email'],$row['password'],$row['url'],$row['activationkey'],$row['username'],$row['status'],$row['aboutme'],$row['coverpicture'],$row['profilepicture'],$row['birthday'],$row['live']);
             }
             Connection::close();
             return $user;
         }
-        
+
 	}
 ?>

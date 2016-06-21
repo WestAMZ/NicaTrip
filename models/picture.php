@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
     Class Picture
 */
 class Picture
@@ -68,7 +68,7 @@ static function getPictures()
             $pictures = array();
             while($row = $result->fetch_assoc())
             {
-                $picture = new Picture($row['idpicture'],$row['url'],$row['date'],$row['user_idUser'],$row['status'],$row['Post_idpost']); 
+                $picture = new Picture($row['idpicture'],$row['url'],$row['date'],$row['user_idUser'],$row['status'],$row['Post_idpost']);
                 array_push($pictures,$picture);
             }
             Connection :: close();
