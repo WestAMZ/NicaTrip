@@ -1,7 +1,4 @@
 <?php
-	/*
-		Usuarios
-	*/
 
 	class User
 	{
@@ -22,12 +19,7 @@
         var $live;
 
         //contructor full
-        function __construct($iduser,$name,$last_name,$email,
-<<<<<<< HEAD
-                           $password,$url,$activationkey,$username,$status,$aboutme,$coverpicture,$profilepicture,$birthday,$live)
-=======
-                           $password,$url,$activationkey,$username,$status,$aboutme,$coverpicture,$profilepicture,$live,$birthday)
->>>>>>> origin/master
+        function __construct($iduser,$name,$last_name,$email,$password,$url,$activationkey,$username,$status,$aboutme,$coverpicture,$profilepicture,$birthday,$live)
         {
             $this->iduser = $iduser;
             $this->name = $name;
@@ -118,11 +110,7 @@
 		//geters
 		function getIdUser()
 		{
-<<<<<<< HEAD
 			return $this->iduser;
-=======
-			return $this->id;
->>>>>>> origin/master
 		}
 		function getName()
 		{
@@ -173,7 +161,6 @@
         }
         function getProfilePicture()
         {
-<<<<<<< HEAD
             if($this->profilepicture == null)
             {
                 return 'default.png';
@@ -182,9 +169,6 @@
             {
                 return $this->profilepicture;
             }
-=======
-            return $this->profilepicture;
->>>>>>> origin/master
         }
         function getBirthDay()
         {
@@ -197,7 +181,7 @@
         /*
             funciones estaticas
         */
-        static function getUsers()
+         function getUsers()
         {
             Connection :: connect();
             $query = "SELECT `iduser`, `name`, `last_name`, `email`, `password`, `url`, `activationkey`, `username`, `status`, `aboutme`, `coverpicture`, `profilepicture`, `birthday`, `live` FROM `user` ";
@@ -218,11 +202,7 @@
             $returned = Connection :: getConnection() -> query("SELECT `email`, `username`, `status` FROM `user` WHERE `username` = '$this->username' OR `email` = '$this->email' LIMIT 1");
             if(!($returned->num_rows >0))
             {
-<<<<<<< HEAD
                 $query = "INSERT INTO `user`(`name`, `last_name`, `email`, `password`, `url`, `activationkey`, `username`,`birthday`,`live`) VALUES ('$this->name','$this->last_name','$this->email','$this->password','$this->url','$this->activationkey','$this->username','$this->birthday','$this->live')";
-=======
-                $query = "INSERT INTO `user`(`name`, `last_name`, `email`, `password`, `url`, `activationkey`, `username`) VALUES ('$this->name','$this->last_name','$this->email','$this->password','$this->url','$this->activationkey','$this->username')";
->>>>>>> origin/master
                 $result = Connection :: getConnection() -> query($query);
                 $added = true;
             }
@@ -257,7 +237,7 @@
 
         }
 
-        static function getUserByUserName($username)
+         function getUserByUserName($username)
         {
             $user = null;
             Connection::connect();
@@ -271,7 +251,7 @@
             Connection::close();
             return $user;
         }
-        static function getUserByIdUser($iduser)
+         function getUserByIdUser($iduser)
         {
             $user = null;
             Connection::connect();
@@ -285,8 +265,7 @@
             Connection::close();
             return $user;
         }
-<<<<<<< HEAD
-        static function getPhotoCount($iduser)
+         function getPhotoCount($iduser)
         {
             $quantity = 0;
             Connection::connect();
@@ -300,7 +279,7 @@
             Connection::close();
             return $quantity;
         }
-        static function getAge($iduser)
+         function getAge($iduser)
         {
             $age = 0;
             Connection::connect();
@@ -314,7 +293,7 @@
             Connection::close();
             return $age;
         }
-        static function getAbout($iduser)
+         function getAbout($iduser)
         {
             $aboutme ='';
             Connection::connect();
@@ -328,7 +307,7 @@
             Connection::close();
             return $aboutme;
         }
-        static function getAddress($iduser)
+         function getAddress($iduser)
         {
             $address ='';
             Connection::connect();
@@ -342,7 +321,7 @@
             Connection::close();
             return $address;
         }
-        static function getBirthdayconvert($iduser)
+         function getBirthdayconvert($iduser)
         {
              $birthday ='';
             Connection::connect();
@@ -356,7 +335,7 @@
             Connection::close();
             return $birthday;
         }
-        static function getTotalUsers()
+         function getTotalUsers()
         {
             $quantity = 0;
             Connection::connect();
@@ -370,8 +349,6 @@
             Connection::close();
             return $quantity;
         }
-=======
 
->>>>>>> origin/master
 	}
 ?>

@@ -1,4 +1,6 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <?php
     include(MODELS_DIR . 'user.php');
     $user = null;
@@ -35,6 +37,7 @@
 
     Site::getFooter();
 =======
+>>>>>>> origin/master
 <?php
     include(MODELS_DIR . 'user.php');
     $user = null;
@@ -65,9 +68,10 @@
 
     Site::getNav();
 
+    include(HTML_DIR . 'profile.html');
+?>
 
+<?php
 
-    Site::getProfile();
     Site::getFooter();
->>>>>>> origin/master
 ?>

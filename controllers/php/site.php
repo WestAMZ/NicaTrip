@@ -1,4 +1,6 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <?php
     class Site
     {
@@ -59,6 +61,7 @@
         }
     }
 =======
+>>>>>>> origin/master
 <?php
     class Site
     {
@@ -115,5 +118,5 @@
         }
 
     }
->>>>>>> origin/master
+
 ?>
