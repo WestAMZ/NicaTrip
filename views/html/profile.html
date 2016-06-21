@@ -4,13 +4,13 @@
 
     <div class="col s12 m12 ">
         <div class="card">
-            <div class="card-image">
+            <div class="card-image" style="border-bottom:1px solid black">
                 <img class="materialboxed" src="<?php echo(COVER_DIR)?>/default.png" height="350px" style="cursor:pointer;">
             </div>
             <figure class="card-profile-image">
                 <img src="<?php echo(PROFILE_DIR . $user->getProfilePicture())?>" class="circle z-depth-2 responsive-img materialboxed" width="100px" height="100px" style="cursor:pointer; margin-top:-70px">
             </figure>
-            <div class="card-content" style="margin-top:-90px">
+            <div class="card-content" style="margin-top:-90px;">
                 <div class="row">
                     <div class="col s12 m3 offset-s2 offset-m1">
                         <h4 class="card-title grey-text center"><?php echo($user->getName() . ' ' . $user->getLastName())?></h4>
@@ -22,7 +22,7 @@
                     </div>
                     <div class="col s12 m3 offset-s2 offset-m1">
                         <h4 class="card-title grey-text center">Age</h4>
-                        <p class="center medium-small">20</p>
+                        <p class="center medium-small"><?php echo($user-> getAge($user->getIdUser())) ?></p>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                 <div class="card-content white-text">
                     <span class="card-title">about me !!</span>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe eos aut, architecto ad! Voluptate recusandae consequuntur dicta esse labore voluptates iste itaque eum rerum, amet culpa molestiae officia, temporibus et.
+                      <?php echo($user->getAbout(($user->getIdUser()))) ?>
                     </p>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                         <div class="col s5 grey-text darken-1">
                             <i class="material-icons">room</i> Lives in
                         </div>
-                        <div class="col s7 grey-text text-darken-4 right-align">Masaya, Nicaragua</div>
+                        <div class="col s7 grey-text text-darken-4 right-align"> <?php echo($user->getAddress($user->getIdUser())) ?></div>
                     </div>
                 </li>
                 <li class="collection-item">
@@ -71,7 +71,7 @@
                         <div class="col s5 grey-text darken-1">
                             <i class="material-icons">cake</i> Birth date
                         </div>
-                        <div class="col s7 grey-text text-darken-4 right-align"> 18th January, 1996</div>
+                        <div class="col s7 grey-text text-darken-4 right-align"> <?php echo($user->getBirthdayconvert($user->getIdUser()))?></div>
                     </div>
                 </li>
             </ul>
@@ -92,7 +92,7 @@
             <div class="card center-align">
                 <div class="card-content purple white-text">
                     <p class="card-stats-title">Nicatrip Users</p>
-                    <h4> 150,000</h4>
+                    <h4> +<?php echo($user->getTotalUsers())?></h4>
                     <p class="ultra-small">user registred</p>
                 </div>
             </div>
@@ -184,13 +184,13 @@
                 </ul>
 
                 <!-- the content of the status tab -->
-                <div id="updateStatus" class="tab-content col s12  grey lighten-4 z-depth-3">
+                <form id="updateStatus" class="tab-content col s12  grey lighten-4 z-depth-3">
                     <div class="row">
                         <div class="col s2">
-                            <img src="<?php echo(IMG_DIR)?>/perfil.jpg" alt="" class="circle responsive-img valign" style="margin-top:20px">
+                            <img src="<?php echo(PROFILE_DIR . $user->getProfilePicture())?>" alt="" class="circle responsive-img valign" style="margin-top:20px">
                         </div>
                         <div class="input-field col s9">
-                            <textarea id="textarea" row="2" class="materialize-textarea"></textarea>
+                            <textarea id="textarea" row="2" class="materialize-textarea" required></textarea>
                             <label for="textarea">
                                 what's you want to say?
                             </label>
@@ -203,12 +203,12 @@
                             <i class="material-icons">videocam</i>
                         </div>
                         <div class="col s6 m6 right-align">
-                            <a class="waves-effect waves-light btn">
+                            <button type="submit" class="waves-effect waves-light btn">
                                 <i class="material-icons">cached</i>Update
-                            </a>
+                            </button>
                         </div>
                     </div>
-                </div>
+                </form>
 
                 <!-- the content of the photos tab -->
                 <div id="Photos" class="tab-content col s12  grey lighten-4 z-depth-3">
@@ -390,8 +390,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 
@@ -401,7 +399,7 @@
             <i class="large material-icons">add</i>
         </a>
         <ul>
-           <li><a class="btn-floating tooltipped red" data-position="left" data-delay="50" data-tooltip="logaut"><i class="material-icons">settings_power</i></a></li>
+           <li><a class="btn-floating tooltipped red"data-position="left" data-delay="50" data-tooltip="log out"><i class="material-icons">settings_power</i></a></li>
             <li><a class="btn-floating tooltipped amber" data-position="left" data-delay="50" data-tooltip="chage wallpaper"><i class="material-icons">aspect_ratio</i></a></li>
             <li><a class="btn-floating tooltipped green" data-position="left" data-delay="50" data-tooltip="chage profile picture"><i class="material-icons">account_circle</i></a></li>
         </ul>

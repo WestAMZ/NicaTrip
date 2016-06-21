@@ -2,7 +2,7 @@
 	/*
 		Usuarios
 	*/
-    
+
 	class User
 	{
 		var $iduser;
@@ -109,8 +109,8 @@
         {
             $this->live = $live;
         }
-        
-        
+
+
 		//geters
 		function getIdUser()
 		{
@@ -118,35 +118,35 @@
 		}
 		function getName()
 		{
-			return $this->name;	
+			return $this->name;
 		}
 		function getLastName()
 		{
-			return $this->last_name;	
+			return $this->last_name;
 		}
 		function getEmail()
 		{
-			return $this->email;	
+			return $this->email;
 		}
 		function getPassword()
 		{
-			return $this->password;	
+			return $this->password;
 		}
         function getActivationkey()
 		{
-			return $this->activationkey;	
+			return $this->activationkey;
 		}
         function getUserName()
 		{
-			return $this->username;	
+			return $this->username;
 		}
         function getStatus()
 		{
-			return $this->status;	
+			return $this->status;
 		}
         function add_error()
 		{
-			return $this->add_error;	
+			return $this->add_error;
 		}
         function getAboutme()
         {
@@ -160,7 +160,7 @@
             }
             else
             {
-                return $this->coverpicture;   
+                return $this->coverpicture;
             }
         }
         function getProfilePicture()
@@ -193,7 +193,7 @@
             $users = array();
             while($row = $result->fetch_assoc())
             {
-                $user = new User($row['iduser'],$row['name'],$row['last_name'],$row['email'],$row['password'],$row['url'],$row['activationkey'],$row['username'],$row['status'],$row['aboutme'],$row['coverpicture'],$row['profilepicture'],$row['birthday'],$row['live']); 
+                $user = new User($row['iduser'],$row['name'],$row['last_name'],$row['email'],$row['password'],$row['url'],$row['activationkey'],$row['username'],$row['status'],$row['aboutme'],$row['coverpicture'],$row['profilepicture'],$row['birthday'],$row['live']);
                 array_push($users,$user);
             }
             Connection :: close();
@@ -206,7 +206,7 @@
             $returned = Connection :: getConnection() -> query("SELECT `email`, `username`, `status` FROM `user` WHERE `username` = '$this->username' OR `email` = '$this->email' LIMIT 1");
             if(!($returned->num_rows >0))
             {
-                $query = "INSERT INTO `user`(`name`, `last_name`, `email`, `password`, `url`, `activationkey`, `username`,`birthday`,`live`) VALUES ('$this->name','$this->last_name','$this->email','$this->password','$this->url','$this->activationkey','$this->username',STR_TO_DATE('$this->birthday','%d %m,%Y'),'$this->live')";
+                $query = "INSERT INTO `user`(`name`, `last_name`, `email`, `password`, `url`, `activationkey`, `username`,`birthday`,`live`) VALUES ('$this->name','$this->last_name','$this->email','$this->password','$this->url','$this->activationkey','$this->username','$this->birthday','$this->live')";
                 $result = Connection :: getConnection() -> query($query);
                 $added = true;
             }
@@ -214,7 +214,7 @@
             {
                 //menajes de error en caso de no haberse guardado
                 $obj = $returned->fetch_assoc();
-                if(strtolower($obj['email']) == strtolower($this->email)) 
+                if(strtolower($obj['email']) == strtolower($this->email))
                 {
                     $this->add_error = '<div class="alert alert-dismissible alert-danger">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -232,15 +232,15 @@
         }
         function updateUser()
         {
-            
+
             Connection::connect();
             $query = "UPDATE `user` SET `name`= '$this->name',`last_name`='$this->last_name',`email`='$this->email',`password`='$this->password',`url`='$this->url',`activationkey`='$this->activationkey',`username`='$this->username',`status`='$this->status' WHERE `iduser` = '$this->iduser' ";
             $result = Connection::getConnection()->query($query);
-            
+
             Connection::close();
-            
+
         }
-        
+
         static function getUserByUserName($username)
         {
             $user = null;
@@ -250,7 +250,7 @@
             if( $result->num_rows > 0)
             {
                 $row = $result->fetch_assoc();
-                $user = new User($row['iduser'],$row['name'],$row['last_name'],$row['email'],$row['password'],$row['url'],$row['activationkey'],$row['username'],$row['status'],$row['aboutme'],$row['coverpicture'],$row['profilepicture'],$row['birthday'],$row['live']);   
+                $user = new User($row['iduser'],$row['name'],$row['last_name'],$row['email'],$row['password'],$row['url'],$row['activationkey'],$row['username'],$row['status'],$row['aboutme'],$row['coverpicture'],$row['profilepicture'],$row['birthday'],$row['live']);
             }
             Connection::close();
             return $user;
@@ -264,7 +264,7 @@
             if( $result->num_rows > 0)
             {
                 $row = $result->fetch_assoc();
-                $user = new User($row['iduser'],$row['name'],$row['last_name'],$row['email'],$row['password'],$row['url'],$row['activationkey'],$row['username'],$row['status'],$row['aboutme'],$row['coverpicture'],$row['profilepicture'],$row['birthday'],$row['live']);   
+                $user = new User($row['iduser'],$row['name'],$row['last_name'],$row['email'],$row['password'],$row['url'],$row['activationkey'],$row['username'],$row['status'],$row['aboutme'],$row['coverpicture'],$row['profilepicture'],$row['birthday'],$row['live']);
             }
             Connection::close();
             return $user;
@@ -279,6 +279,76 @@
             {
                 $row = $result->fetch_assoc();
                 $quantity = $row['quantity'];
+            }
+            Connection::close();
+            return $quantity;
+        }
+        static function getAge($iduser)
+        {
+            $age = 0;
+            Connection::connect();
+            $query = "SELECT TIMESTAMPDIFF(YEAR,u.birthday,CURRENT_DATE) as age from user u where iduser = '$iduser'";
+            $result = Connection::getConnection()->query($query);
+            if($result->num_rows > 0)
+            {
+                $row = $result->fetch_assoc();
+                $age = $row['age'];
+            }
+            Connection::close();
+            return $age;
+        }
+        static function getAbout($iduser)
+        {
+            $aboutme ='';
+            Connection::connect();
+            $query = "SELECT u.aboutme as aboutme FROM user u WHERE u.iduser = '$iduser'";
+            $result = Connection::getConnection()->query($query);
+            if($result->num_rows > 0)
+            {
+                $row = $result->fetch_assoc();
+                $aboutme = $row['aboutme'];
+            }
+            Connection::close();
+            return $aboutme;
+        }
+        static function getAddress($iduser)
+        {
+            $address ='';
+            Connection::connect();
+            $query = "SELECT u.live as address FROM user u WHERE u.iduser = '$iduser'";
+            $result = Connection::getConnection()->query($query);
+            if($result->num_rows > 0)
+            {
+                $row = $result->fetch_assoc();
+                $address = $row['address'];
+            }
+            Connection::close();
+            return $address;
+        }
+        static function getBirthdayconvert($iduser)
+        {
+             $birthday ='';
+            Connection::connect();
+            $query = "select DATE_FORMAT(u.birthday,'%D %M %Y') as birthday from user u WHERE u.iduser = '$iduser'";
+            $result = Connection::getConnection()->query($query);
+            if($result->num_rows > 0)
+            {
+                $row = $result->fetch_assoc();
+                $birthday = $row['birthday'];
+            }
+            Connection::close();
+            return $birthday;
+        }
+        static function getTotalUsers()
+        {
+            $quantity = 0;
+            Connection::connect();
+            $query = "SELECT COUNT(u.iduser) as total FROM user u where u.status = true";
+            $result = Connection::getConnection()->query($query);
+            if($result->num_rows > 0)
+            {
+                $row = $result->fetch_assoc();
+                $quantity = $row['total'];
             }
             Connection::close();
             return $quantity;
