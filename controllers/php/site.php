@@ -57,3 +57,7 @@
             include(HTML_DIR . 'profilenotfound.html');
         }
     }
+<<<<<<< HEAD
+=======
+?>
+>>>>>>> NicaTrip/master
