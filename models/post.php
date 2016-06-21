@@ -2,6 +2,8 @@
 /*
     Class Post
 */
+include(MODELS_DIR . 'user.php');
+include(MODELS_DIR . 'picture.php');
 class Post
 {
     var $idPost;
@@ -88,7 +90,8 @@ static function getPosts()
             $posts = array();
             while($row = $result->fetch_assoc())
             {
-                $post = new Post($row['idpost'],$row['titulo'],$row['date'],$row['content'],$row['user_iduser'],$row['status'],$row['url']);
+                //$idPost, $titulo, $post_date, $content, $status, $url, $idUser
+                $post = new Post($row['idpost'],$row['titulo'],$row['date'],$row['content'],$row['status'],$row['url'],$row['id_user']);
                 array_push($posts,$post);
             }
             Connection :: close();
@@ -100,6 +103,14 @@ static function getPosts()
             $query = "INSERT INTO `post`(`idpost`, `titulo`, `date`, `content`, `user_iduser`, `status`, `url`) VALUES ('$this->idPost', '$this->titulo', '$this->post_date', '$this->content', '$this->idUser', '$this->status', '$this->url')";
             $result = Connection :: getConnection() -> query($query);
             Connection :: close();
+        }
+        function getUser()
+        {
+            return getUserByIdUser($this->idUser);
+        }
+        function getPicture()
+        {
+            return getPictureByPostId($this->$id_post);
         }
 }
 ?>

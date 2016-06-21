@@ -6,22 +6,27 @@ class Picture
 {
     var $idPicture;
     var $url;
-    var $picture_date;
+    var $id_post;
     var $status;
     var $idUser;
 //Construct
-    function __construct($idPicture, $url, $picture_date, $status, $idUser)
+    function __construct($idPicture, $url, $picture_date, $status, $idUser,$id_post)
     {
         $this->idPicture = $idPicture;
         $this->url = $url;
         $this->picture_date = $picture_date;
         $this->status = $status;
         $this->idUser = $idUser;
+        $this->id_postr = $id_post;
     }
 // Setters Methods
     function setIdPicture($idPicture)
     {
         $this->idPicture = $idPicture;
+    }
+    function setIdPost($id_post)
+    {
+        $this->id_postr = $id_post;
     }
     function setUrl($url)
     {
@@ -40,6 +45,10 @@ class Picture
         $this->idUser = $idUser;
     }
 // Getters Methods
+    function getIdPost()
+    {
+        return $this->id_post;
+    }
     function getIdPicture()
     {
         return $this->idPicture;
@@ -60,7 +69,7 @@ class Picture
     {
         return $this->idUser;
     }
-static function getPictures()
+    static function getPictures()
         {
             Connection :: connect();
             $query = "SELECT `idpicture`, `url`, `date`, `user_idUser`, `status`, `Post_idpost` FROM `picture`";
@@ -80,6 +89,13 @@ static function getPictures()
             $query = "INSERT INTO `picture`(`idpicture`, `url`, `date`, `user_idUser`, `status`, `Post_idpost`) VALUES ('$this->idPicture', '$this->url', '$this->picture_date', '$this->idUser', '$this->status', '$this->idPost')";
             $result = Connection :: getConnection() -> query($query);
             Connection :: close();
+        }
+        function getPictureByPostId()
+        {
+            Connection::connect();
+            $query = '';
+            Connection::getConnection()->query();
+            Coenection::close();
         }
 }
 ?>
