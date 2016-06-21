@@ -25,8 +25,6 @@
     {
         Site::getHead($user->getName() .' '. $user->getLastName());
     }
-
-
     Site::getNav();
 
     include(HTML_DIR . 'profile.html');
