@@ -1,16 +1,11 @@
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
-
-CREATE SCHEMA IF NOT EXISTS `nicatrip_datos_datos` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `nicatrip_datos_datos` ;
+USE `nicatrip_datos` ;
 
 -- -----------------------------------------------------
--- Table `nicatrip_datos_datos`.`user`
+-- Table `nicatrip_datos`.`user`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `nicatrip_datos_datos`.`user` ;
+DROP TABLE IF EXISTS `nicatrip_datos`.`user` ;
 
-CREATE TABLE IF NOT EXISTS `nicatrip_datos_datos`.`user` (
+CREATE TABLE IF NOT EXISTS `nicatrip_datos`.`user` (
   `iduser` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(35) NOT NULL,
   `last_name` VARCHAR(35) NOT NULL,
@@ -30,11 +25,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `nicatrip_datos_datos`.`acceso`
+-- Table `nicatrip_datos`.`acceso`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `nicatrip_datos_datos`.`acceso` ;
+DROP TABLE IF EXISTS `nicatrip_datos`.`acceso` ;
 
-CREATE TABLE IF NOT EXISTS `nicatrip_datos_datos`.`acceso` (
+CREATE TABLE IF NOT EXISTS `nicatrip_datos`.`acceso` (
   `idaccess` INT NOT NULL,
   `ipaddress` VARCHAR(20) NOT NULL,
   `servername` VARCHAR(30) NOT NULL,
@@ -45,18 +40,18 @@ CREATE TABLE IF NOT EXISTS `nicatrip_datos_datos`.`acceso` (
   INDEX `fk_Acceso_usuario_idx` (`id_user` ASC),
   CONSTRAINT `fk_Acceso_usuario`
     FOREIGN KEY (`id_user`)
-    REFERENCES `nicatrip_datos_datos`.`user` (`iduser`)
+    REFERENCES `nicatrip_datos`.`user` (`iduser`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `nicatrip_datos_datos`.`post`
+-- Table `nicatrip_datos`.`post`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `nicatrip_datos_datos`.`post` ;
+DROP TABLE IF EXISTS `nicatrip_datos`.`post` ;
 
-CREATE TABLE IF NOT EXISTS `nicatrip_datos_datos`.`post` (
+CREATE TABLE IF NOT EXISTS `nicatrip_datos`.`post` (
   `idpost` INT NOT NULL AUTO_INCREMENT,
   `titulo` VARCHAR(100) NOT NULL,
   `date` DATETIME NOT NULL,
@@ -68,18 +63,18 @@ CREATE TABLE IF NOT EXISTS `nicatrip_datos_datos`.`post` (
   INDEX `fk_Post_usuario1_idx` (`id_user` ASC),
   CONSTRAINT `fk_Post_usuario1`
     FOREIGN KEY (`id_user`)
-    REFERENCES `nicatrip_datos_datos`.`user` (`iduser`)
+    REFERENCES `nicatrip_datos`.`user` (`iduser`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `nicatrip_datos_datos`.`picture`
+-- Table `nicatrip_datos`.`picture`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `nicatrip_datos_datos`.`picture` ;
+DROP TABLE IF EXISTS `nicatrip_datos`.`picture` ;
 
-CREATE TABLE IF NOT EXISTS `nicatrip_datos_datos`.`picture` (
+CREATE TABLE IF NOT EXISTS `nicatrip_datos`.`picture` (
   `idpicture` INT NOT NULL AUTO_INCREMENT,
   `url` VARCHAR(500) NOT NULL,
   `id_User` INT NOT NULL,
@@ -90,23 +85,23 @@ CREATE TABLE IF NOT EXISTS `nicatrip_datos_datos`.`picture` (
   INDEX `fk_picture_Post1_idx` (`id_post` ASC),
   CONSTRAINT `fk_Foto_usuario1`
     FOREIGN KEY (`id_User`)
-    REFERENCES `nicatrip_datos_datos`.`user` (`iduser`)
+    REFERENCES `nicatrip_datos`.`user` (`iduser`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_picture_Post1`
     FOREIGN KEY (`id_post`)
-    REFERENCES `nicatrip_datos_datos`.`post` (`idpost`)
+    REFERENCES `nicatrip_datos`.`post` (`idpost`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `nicatrip_datos_datos`.`comment`
+-- Table `nicatrip_datos`.`comment`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `nicatrip_datos_datos`.`comment` ;
+DROP TABLE IF EXISTS `nicatrip_datos`.`comment` ;
 
-CREATE TABLE IF NOT EXISTS `nicatrip_datos_datos`.`comment` (
+CREATE TABLE IF NOT EXISTS `nicatrip_datos`.`comment` (
   `idcomment` INT NOT NULL AUTO_INCREMENT,
   `content` VARCHAR(2000) NOT NULL,
   `date` DATETIME NOT NULL,
@@ -118,23 +113,23 @@ CREATE TABLE IF NOT EXISTS `nicatrip_datos_datos`.`comment` (
   INDEX `fk_Comentario_Post1_idx` (`id_post` ASC),
   CONSTRAINT `fk_Comentario_usuario1`
     FOREIGN KEY (`id_user`)
-    REFERENCES `nicatrip_datos_datos`.`user` (`iduser`)
+    REFERENCES `nicatrip_datos`.`user` (`iduser`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Comentario_Post1`
     FOREIGN KEY (`id_post`)
-    REFERENCES `nicatrip_datos_datos`.`post` (`idpost`)
+    REFERENCES `nicatrip_datos`.`post` (`idpost`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `nicatrip_datos_datos`.`video`
+-- Table `nicatrip_datos`.`video`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `nicatrip_datos_datos`.`video` ;
+DROP TABLE IF EXISTS `nicatrip_datos`.`video` ;
 
-CREATE TABLE IF NOT EXISTS `nicatrip_datos_datos`.`video` (
+CREATE TABLE IF NOT EXISTS `nicatrip_datos`.`video` (
   `idvideo` INT NOT NULL AUTO_INCREMENT,
   `url` VARCHAR(400) NOT NULL,
   `user_iduser` INT NOT NULL,
@@ -145,12 +140,12 @@ CREATE TABLE IF NOT EXISTS `nicatrip_datos_datos`.`video` (
   INDEX `fk_Video_Post1_idx` (`id_post` ASC),
   CONSTRAINT `fk_Video_Usuario1`
     FOREIGN KEY (`user_iduser`)
-    REFERENCES `nicatrip_datos_datos`.`user` (`iduser`)
+    REFERENCES `nicatrip_datos`.`user` (`iduser`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Video_Post1`
     FOREIGN KEY (`id_post`)
-    REFERENCES `nicatrip_datos_datos`.`post` (`idpost`)
+    REFERENCES `nicatrip_datos`.`post` (`idpost`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
