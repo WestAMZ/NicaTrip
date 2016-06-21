@@ -22,7 +22,9 @@
                     </div>
                     <div class="col s12 m3 offset-s2 offset-m1">
                         <h4 class="card-title grey-text center">Age</h4>
-                        <p class="center medium-small"><?php echo($user-> getAge($user->getIdUser())) ?></p>
+                        <p class="center medium-small">
+                            <?php echo($user-> getAge($user->getIdUser())) ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -43,7 +45,7 @@
                 <div class="card-content white-text">
                     <span class="card-title">about me !!</span>
                     <p>
-                      <?php echo($user->getAbout(($user->getIdUser()))) ?>
+                        <?php echo($user->getAbout(($user->getIdUser()))) ?>
                     </p>
                 </div>
             </div>
@@ -63,7 +65,9 @@
                         <div class="col s5 grey-text darken-1">
                             <i class="material-icons">room</i> Lives in
                         </div>
-                        <div class="col s7 grey-text text-darken-4 right-align"> <?php echo($user->getAddress($user->getIdUser())) ?></div>
+                        <div class="col s7 grey-text text-darken-4 right-align">
+                            <?php echo($user->getAddress($user->getIdUser())) ?>
+                        </div>
                     </div>
                 </li>
                 <li class="collection-item">
@@ -71,7 +75,9 @@
                         <div class="col s5 grey-text darken-1">
                             <i class="material-icons">cake</i> Birth date
                         </div>
-                        <div class="col s7 grey-text text-darken-4 right-align"> <?php echo($user->getBirthdayconvert($user->getIdUser()))?></div>
+                        <div class="col s7 grey-text text-darken-4 right-align">
+                            <?php echo($user->getBirthdayconvert($user->getIdUser()))?>
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -214,7 +220,7 @@
                 <div id="Photos" class="tab-content col s12  grey lighten-4 z-depth-3">
                     <div class="row">
                         <div class="col s2">
-                            <img src="<?php echo(IMG_DIR)?>/perfil.jpg" alt="" class="circle responsive-img valign" style="margin-top:20px">
+                            <img src="<?php echo(PROFILE_DIR . $user->getProfilePicture())?>" alt="" class="circle responsive-img valign" style="margin-top:20px">
                         </div>
                         <div class="input-field col s9">
                             <textarea id="textarea" row="2" class="materialize-textarea"></textarea>
@@ -244,7 +250,7 @@
                 <div id="Videos" class="tab-content col s12  grey lighten-4 z-depth-3">
                     <div class="row">
                         <div class="col s2">
-                            <img src="<?php echo(IMG_DIR)?>/perfil.jpg" alt="" class="circle responsive-img valign" style="margin-top:20px">
+                            <img src="<?php echo(PROFILE_DIR . $user->getProfilePicture())?>" alt="" class="circle responsive-img valign" style="margin-top:20px">
                         </div>
                         <div class="input-field col s9">
                             <textarea id="textarea" row="2" class="materialize-textarea"></textarea>
@@ -258,6 +264,11 @@
                             <i class="material-icons">account_circle</i>
                             <i class="material-icons">camera_enhance</i>
                             <i class="material-icons red-text">videocam</i>
+                        </div>
+                        <div class="col s12 m6 right-align">
+                            <a class="waves-effect waves-light btn">
+                                <i class="material-icons">send</i>Share Video
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -393,18 +404,18 @@
         </div>
     </div>
 
-<!-- this is a boton for upload a image of my profile of my backpicture -->
+    <!-- this is a boton for upload a image of my profile of my backpicture -->
     <div class="fixed-action-btn click-to-toggle" style="bottom: 45px; right: 24px;">
         <a class="btn-floating btn-large blue">
             <i class="large material-icons">add</i>
         </a>
         <ul>
-           <li><a class="btn-floating tooltipped red"data-position="left" data-delay="50" data-tooltip="log out"><i class="material-icons">settings_power</i></a></li>
+            <li><a class="btn-floating tooltipped red" data-position="left" data-delay="50" data-tooltip="log out"><i class="material-icons">settings_power</i></a></li>
             <li><a class="btn-floating tooltipped amber" data-position="left" data-delay="50" data-tooltip="chage wallpaper"><i class="material-icons">aspect_ratio</i></a></li>
             <li><a class="btn-floating tooltipped green" data-position="left" data-delay="50" data-tooltip="chage profile picture"><i class="material-icons">account_circle</i></a></li>
         </ul>
     </div>
-<!-- this is a boton for upload a image of my profile of my backpicture -->
+    <!-- this is a boton for upload a image of my profile of my backpicture -->
 </div>
 
 
