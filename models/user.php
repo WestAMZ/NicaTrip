@@ -23,7 +23,11 @@
 
         //contructor full
         function __construct($iduser,$name,$last_name,$email,
+<<<<<<< HEAD
+                           $password,$url,$activationkey,$username,$status,$aboutme,$coverpicture,$profilepicture,$birthday,$live)
+=======
                            $password,$url,$activationkey,$username,$status,$aboutme,$coverpicture,$profilepicture,$live,$birthday)
+>>>>>>> origin/master
         {
             $this->iduser = $iduser;
             $this->name = $name;
@@ -114,7 +118,11 @@
 		//geters
 		function getIdUser()
 		{
+<<<<<<< HEAD
+			return $this->iduser;
+=======
 			return $this->id;
+>>>>>>> origin/master
 		}
 		function getName()
 		{
@@ -165,7 +173,18 @@
         }
         function getProfilePicture()
         {
+<<<<<<< HEAD
+            if($this->profilepicture == null)
+            {
+                return 'default.png';
+            }
+            else
+            {
+                return $this->profilepicture;
+            }
+=======
             return $this->profilepicture;
+>>>>>>> origin/master
         }
         function getBirthDay()
         {
@@ -199,7 +218,11 @@
             $returned = Connection :: getConnection() -> query("SELECT `email`, `username`, `status` FROM `user` WHERE `username` = '$this->username' OR `email` = '$this->email' LIMIT 1");
             if(!($returned->num_rows >0))
             {
+<<<<<<< HEAD
+                $query = "INSERT INTO `user`(`name`, `last_name`, `email`, `password`, `url`, `activationkey`, `username`,`birthday`,`live`) VALUES ('$this->name','$this->last_name','$this->email','$this->password','$this->url','$this->activationkey','$this->username','$this->birthday','$this->live')";
+=======
                 $query = "INSERT INTO `user`(`name`, `last_name`, `email`, `password`, `url`, `activationkey`, `username`) VALUES ('$this->name','$this->last_name','$this->email','$this->password','$this->url','$this->activationkey','$this->username')";
+>>>>>>> origin/master
                 $result = Connection :: getConnection() -> query($query);
                 $added = true;
             }
@@ -262,6 +285,93 @@
             Connection::close();
             return $user;
         }
+<<<<<<< HEAD
+        static function getPhotoCount($iduser)
+        {
+            $quantity = 0;
+            Connection::connect();
+            $query = "SELECT Count(`idpicture`) as quantity FROM picture where id_user = '$iduser'";
+            $result = Connection::getConnection()->query($query);
+            if($result->num_rows >0)
+            {
+                $row = $result->fetch_assoc();
+                $quantity = $row['quantity'];
+            }
+            Connection::close();
+            return $quantity;
+        }
+        static function getAge($iduser)
+        {
+            $age = 0;
+            Connection::connect();
+            $query = "SELECT TIMESTAMPDIFF(YEAR,u.birthday,CURRENT_DATE) as age from user u where iduser = '$iduser'";
+            $result = Connection::getConnection()->query($query);
+            if($result->num_rows > 0)
+            {
+                $row = $result->fetch_assoc();
+                $age = $row['age'];
+            }
+            Connection::close();
+            return $age;
+        }
+        static function getAbout($iduser)
+        {
+            $aboutme ='';
+            Connection::connect();
+            $query = "SELECT u.aboutme as aboutme FROM user u WHERE u.iduser = '$iduser'";
+            $result = Connection::getConnection()->query($query);
+            if($result->num_rows > 0)
+            {
+                $row = $result->fetch_assoc();
+                $aboutme = $row['aboutme'];
+            }
+            Connection::close();
+            return $aboutme;
+        }
+        static function getAddress($iduser)
+        {
+            $address ='';
+            Connection::connect();
+            $query = "SELECT u.live as address FROM user u WHERE u.iduser = '$iduser'";
+            $result = Connection::getConnection()->query($query);
+            if($result->num_rows > 0)
+            {
+                $row = $result->fetch_assoc();
+                $address = $row['address'];
+            }
+            Connection::close();
+            return $address;
+        }
+        static function getBirthdayconvert($iduser)
+        {
+             $birthday ='';
+            Connection::connect();
+            $query = "select DATE_FORMAT(u.birthday,'%D %M %Y') as birthday from user u WHERE u.iduser = '$iduser'";
+            $result = Connection::getConnection()->query($query);
+            if($result->num_rows > 0)
+            {
+                $row = $result->fetch_assoc();
+                $birthday = $row['birthday'];
+            }
+            Connection::close();
+            return $birthday;
+        }
+        static function getTotalUsers()
+        {
+            $quantity = 0;
+            Connection::connect();
+            $query = "SELECT COUNT(u.iduser) as total FROM user u where u.status = true";
+            $result = Connection::getConnection()->query($query);
+            if($result->num_rows > 0)
+            {
+                $row = $result->fetch_assoc();
+                $quantity = $row['total'];
+            }
+            Connection::close();
+            return $quantity;
+        }
+=======
 
+>>>>>>> origin/master
 	}
 ?>
