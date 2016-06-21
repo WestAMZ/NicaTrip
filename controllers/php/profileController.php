@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> NicaTrip/master
 <?php
     include(MODELS_DIR . 'user.php');
     $user = null;
@@ -30,8 +34,6 @@
 
     include(HTML_DIR . 'profile.html');
 ?>
-
 <?php
-
     Site::getFooter();
 ?>
