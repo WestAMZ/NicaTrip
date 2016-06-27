@@ -12,13 +12,14 @@
             $db = "nicatrip";
             $user = 'root';
             $pass = '';
-           /*datos del host
+            //datos del host
 
+  /*
             $host ="localhost";
             $db = "nicatrip_datos";
             $user = 'nicatrip_datos';
             $pass = 'sistemas123';
-            */
+             */
 
             self:: $mysqli =new mysqli($host, $user, $pass,$db);
             if( self :: $mysqli -> connect_error)
