@@ -1,306 +1,392 @@
 /*
-  estilos NicaTrip
+    EBCO System styles
 */
-
-
 
 body
 {
-    background-color: #eaeaea;
+   background: #dedede;
 }
-.container-fluid, .container
-{
-    padding: 50px 20px;
-    height: auto !important;
-}
-.form
-{
-    background: white;
-}
-.nav-logo
-{
-    width: 50px;
-    height: 50px;
-}
+::-webkit-input-placeholder { color: blue; } /* WebKit */
+:-moz-placeholder { color: blue; } /* Firefox 18- */
+::-moz-placeholder { color: blue; } /* Firefox 19+ */
+:-ms-input-placeholder { color: blue; } /* IE 10+ */
 
 /*
-    estilos de registro
+    _________________________________Login_________________________________
 */
-#register_form *
+h3
 {
-    font-size: 20px;
-    font-weight: normal;
-}
-#register_form
-{
-    border:  solid 1px #c2c2c2;
-
-    padding: 30px;
-    width: 450px;
-    box-shadow: 2px 2px 5px grey;
-    margin: 200px auto;
-}
-#register_form input
-{
-    width: 100%;
-    margin-bottom: 20px;
-}
-/*
-     estilos social nav
-*/
-#social_nav *
-{
-    padding: 0px;
-    margin: 0px;
-}
-#social_nav
-{
-    height: 150px;
-    width: 60px;
-    position: fixed;
-    left: -40px;
-    top: 260px;
-    background: #000000;
-    transition-timing-function: ease-in;
-    transition-duration: 0.5s;
-    z-index: 1000;
-}
-#social_nav img
-{
-    height: 45px;
-    width: 45px;
-}
-#social_nav .social_btn
-{
-    display: block;
-    padding: 5px;
-    border-right:20px solid white;
-    background: #000000;
-    transition: all;
-    transition-timing-function: ease-in;
-    transition-duration: 0.5s;
-}
-#social_nav:hover
-{
-    left: 0px;
-}
-#social_nav .social_btn:hover
-{
-    width: 70px;
-}
-#facebook:hover
-{
-    background: rgb(0, 58, 252);
-    border-right: rgb(0, 30, 132) solid 15px;
-}
-#twitter:hover
-{
-    background: rgb(76, 166, 255);
-    border-right: rgb(56, 125, 193) solid 15px;
-}
-/*
-    estilos footer
-*/
-#footer *
-{
-    color: white;
-}
-#footer
-{
-
-    background: rgb(0, 128, 255);
-    left: 0px;
-}
-#footer h1
-{
-    color: black;
-    font-family: fantasy;
-    font-size: 20px;
-}
-footer #copy
-{
-    text-align: center;
-    padding: 0px;
-    height: 100px;
-    width: 100%;
-    border-top: 1px solid  #626262;
-    background: black;
-    border-radius: -10px;
-}
-footer #copy h1
-{
-    color: rgb(0, 128, 255);
-
-}
-/*
-    responsive menu
-*/
-#hiddenMenu
-{
-    z-index: 500;
-    position: fixed;
-    width: 300px;
-    right: -400px;
-    top: 70px;
-    display: block;
-    transition: all;
-	-moz-transition-duration:1s;
-	-webkit-transition-duration:1s;
-}
-.responsiveMenu
-{
-
-    top: 70px;
-    right: 0px !important;
-    background: black;
-    box-shadow: 0px 0px 10px black;
-}
-#hiddenMenu ul
-{
-    list-style: none;
-}
-#hiddenMenu li
-{
-    text-align: center;
+    font-family: verdana,fantasy,helvetica;
     font-size: 25px;
-	margin:0px;
-    display: block;
 }
-#hiddenMenu a
+#result
 {
-    display: block;
-	color: white;
-	font-size: 20px;
-	transition: all;
-	-moz-transition-duration:1s;
-	-webkit-transition-duration:1s;
-	padding:20px;
-	margin:0px;
-    color: white;
-}
-#hiddenMenu a:hover
-{
-    background: white;
-    color:black;
-    text-decoration: none;
-
-}
-#nav_btn
-{
-    display: none;
-}
-
-
-/*======================================================================
-this part is about the login menu RIcardo
-======================================================================
-*/
-
-#createaccount:hover
-{
-    text-decoration: underline;
-    color: hotpink;
-}
-#panellogin
-{
-    width: 100%;
-    height: 400px;
     text-align: center;
-    background-image: url(../img/loginfondo.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding-top: 50px;
 }
-
-
-/*
-=======================================================================================
-        Register part
-=======================================================================================
-*/
-#panelregister
+#formlogin
 {
-    width: 100%;
-    height: 600px;
-    background-color: #5f5f5f;
-    background: url(../img/imagen4.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding-top: 50px;
-}
-
-.form-title
-{
-    color: blck;
     height: auto;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom: solid #5d5d5d 1px;
-    padding: 20px;
+    width: 50%;
+    background-color: #ffffff;
+    margin: 70px auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px;
+    padding: 0px;
+    padding-bottom: 20px;
 }
-
-#barraregistro h5
+#form-title
 {
+
+    padding: 10px;
+    padding-bottom: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: solid black 1px;
+}
+#backgroundtitle h4
+{
+    color: #000000;
+    font-size: 18px;
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 23px;
-    margin: auto auto;
+    text-align: center;
+    margin-top: 5px;
 }
-#forms button
+#checkboxlogin
 {
-    margin: 10px;
+    margin-left: 20px;
 }
-
-
+#buttonaccess
+{
+    margin: 10px 0px;
+    background: #003252;
+}
+.input-field
+{
+    padding: 10px 30px;
+    text-align: center;
+}
+#login-container
+{
+    background: #223963;
+    margin: 0px;
+}
 
 /*
-===============================================
-    css the website for  activation
-===============================================
+   ******************** contenedores principales
 */
-#confirmdialog
+h1,h2,h3,h4,h5,h6
 {
-    border-radius: 10px !important;
-
+    text-align: center;
 }
-#fondoconfirm
+#logo
 {
-    width: 100%;
-    height: 650px;
-    background-color: #dbdbdb;
-    background: url(../img/playa_maderas.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: auto;
+    max-height: 60px;
+    width: 90%;
 }
-.forms
+.side-nav
 {
-    margin-top: 50px;
-    width: 50%;
-    height: auto;
+    background: #003252;
+}
+.full
+{
+    padding: 0px !important;
+    margin: 0px !important;
+}
+.max-height
+{
+    height: 100vh;
+}
+#main-nav
+{
+    background: #003252;
+    padding: 0px 25px;
+}
+#main-nav *
+{
+    color:white;
+}
+#main-nav li.active
+{
+    background: black;
+}
+.hide-on-med-and-down  a:hover, .side-nav a:hover
+{
+    background: #f46227;
+}
+#welcome
+{
+    background: #00aaff;
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    height: 64px;
+    padding-top:40px;
+    margin: 0px;
+}
+#right-main
+{
+    background: #dedede;
+    width: calc(100% - 250px);
+    overflow: hidden;
+}
+#left-main
+{
+    width: 250px;
+    overflow: hidden;
     background: white;
-    border-radius: 10px;
+}
+#notification-title
+{
+    border-bottom: solid 1px black;
+    border-top: solid 1px black;
+}
+.menu-btn
+{
+    background: white;
+    box-shadow: 0px 0px 10px grey;
+    -moz-box-shadow: 0px 0px 10px grey;
+    border-radius: 20px;
+    margin: 20px 30px;
+    height: 150px;
+    width: 40%;
+    display: inline-block;
+    transition: 0.2s all ease-in;
+}
+.menu-btn:hover
+{
+    box-shadow: 0px 0px 10px #00b5ff;
+    -moz-box-shadow: 0px 0px 20px #00b5ff;
+    transform: scale(1.1);
+}
+#menu-container
+{
+    height: calc(100vh - 64px);
+    overflow-y: scroll;
+    width: 100%;
+}
+#menu
+{
+    padding-bottom: 100px;
+    width: 100%;
+}
+.manu-btn .title
+{
+    font-weight: bold;
+}
+.menu-btn .menu-div
+{
+    width: 45%;
+    margin-top: 15px;
+    height: 120px;
+    display: inline-block;
+    float: left;
+    font-size: 20px;
+    line-height: 25px;
+    padding-left: 25px;
+}
+.menu-btn .menu-div:nth-child(odd)
+{
+    border-right: solid 2px black;
+}
+.menu-btn img
+{
+    width: 90%;
+    height: 90%;
+}
+#profile-preview /*img*/
+{
+    width: 200px;
+    height: 200px;
     margin: 0px auto;
-    padding: 30px;
-    padding-top: 0px;
+    background-size: cover !important;
+    background-position: center;
+    background-origin: content-box;
+    border-radius: 100%;
+    padding: 20px;
+}
+.profile-preview-mini
+{
+    width: 70px;
+    height: 70px;
+    margin: 5px;
+    background-size: cover !important;
+    background-position: top;
+    border-radius: 100%;
+    padding: 20px;
+}
+.profile-style /*img*/
+{
+    width: 50;
+    height: 200px;
+    margin: 0px auto;
+    background-size: cover !important;
+    background-position: top;
+    border-radius: 100%;
 
 }
-/*
-    ______________________________responsive______________________________
-*/
-@media screen and (max-width: 800px)
+#user-name
 {
+    display: inline-block;
+    font-family: fantasy,verdana;
+    font-size: 25px;
+    padding: 5px;
+    text-align: center;
+}
+#notifications-container
+{
+    height: calc(100vh - 412px);
+    overflow-y: scroll;
+}
+.notification:last-child
+{
+    margin-bottom: 100px;
+}
+.notification
+{
+    display: block;
+    padding: 10px;
+    width: 100%;
+    background: #4388cc;
+    color: white;
+    border-bottom:solid 1px white;
+    margin: 0px;
+    transition: all  0.5s ease-in;
+    margin: 5px;
+}
+.slider-container
+{
+    background: white;
+    width: 90%;
+    margin: 20px auto;
+    -moz-box-shadow: 5px 5px 10px black;
+    -webkit-box-shadow: 5px 5px 5px black;
+    -o-box-shadow: 5px 5px 5px black;
+    -ms-box-shadow: 5px 5px 5px black;
+}
+.notification:hover
+{
+    background: black;
+}
+.notification i
+{
+    color:#ffffff;
+}
+.slider h3,h5
+{
+    color: black;
+    text-align: justify;
+}
+.slider .date
+{
+    color: #0097d4 !important;
+    font-size: 20px;
+    text-align: right;
+}
 
-    #social_nav
+.panelbackground
+{
+    height:auto;
+    background: white;
+    margin: 50px auto;
+    border-radius: 15px;
+}
+
+#titulo
+{
+    border-top-left-radius:50px;
+    border-top-right-radius:10px
+}
+#submenus
+{
+    border:1px solid black !important;
+    margin:20px !important;
+}
+#map
+{
+    width:85%;
+    height:450px;
+    margin-right: 30px;
+    margin: 20px auto;
+    background: #0089ff;
+    box-shadow: 0px 0px 10px grey;
+}
+.scroll-y
+{
+    overflow-y: scroll ;
+    height: 400px;
+    display: inline-block;
+}
+/*
+    --Responsive
+*/
+@media screen and (max-width: 1000px)
+{
+    #left-main
     {
         display: none;
     }
-    .forms
+    #right-main
+    {
+        width: 100%;
+    }
+    .menu-btn
+    {
+        width: 80%;
+    }
+    #formlogin
     {
         width: 90%;
     }
+    #main-nav a
+    {
+        height: 56px;
+    }
+    #menu-container
+    {
+        height : calc(100vh - 56px);
+    }
+}
+/*
+    funcionalidad
+*/
+tr
+{
+    cursor: pointer !important;
+}
+tr
+{
+    transition: 0.5s ease-in-out all;
+}
+.selected
+{
+    background: #9adcfd !important;
 }
 
+form
+{
+    padding: 30px !important;
+}
+#searchtxt
+{
+    width: 20% !important;
+    background-color: white !important;
+    background-image: url('searchicon.png') !important;
+    background-position: 10px 10px !important;
+    background-repeat: no-repeat !important;
+    -webkit-transition: width 0.4s ease-in-out !important;
+    transition: width 0.4s ease-in-out !important;
 
+}
+#searchtxt:focus
+{
+  width: 40% !important;
+}
+.addcursor
+{
+    cursor: pointer !importan;
+}
+.formcomentario
+{
+    min-height: 200px !important;
+}

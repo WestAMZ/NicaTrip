@@ -3,27 +3,60 @@
     {
         private static $mysqli = null;
         //validacion de acceso
+        public static function login($correo,$pass)
+        {
+            //error_reporting(~E_WARNING);
+
+
+            self :: connect();
+            $pass = self :: codify($pass);
+            $query = "SELECT id_usuario,password,role,id_empleado,foto FROM usuario  WHERE correo = '$correo' ";
+            $result = self :: getConnection() ->query($query);
+            if($result->num_rows > 0)
+            {
+                $row = $result -> fetch_assoc();
+
+                if (!($row['password'] == $pass))
+                {
+                    echo "Datos ingresados incorrectos o cuenta inactiva";
+                }
+                else
+                {
+                    self::initSession();
+                    $_SESSION['session'] = 'active';
+                    $_SESSION['id_usuario'] = $row['id_usuario'];
+                    $_SESSION['role'] = $row['role'];
+                    $_SESSION['id_empleado'] = $row['id_empleado'];
+                    $_SESSION['foto'] = $row['foto'];
+                    $_SESSION['hora_conexion'] = date("Y-m-d") .' '. date("h:i:sa");
+                    echo 1;
+                }
+            }
+            self :: getConnection()->close();
+
+        }
+        //conecction
 
         public static function connect()
         {
-            //error_reporting(~E_NOTICE);                                                                 //nombre del host
+            //nombre del host
 
             $host ="localhost";
-            $db = "nicatrip";
-            $user = 'root';
-            $pass = '';
-            //datos del host
+            $db = "ebco_sistema";
+            $user = 'ebco_sistema';
+            $pass = '$$ebco';
+           /*datos del host
 
-  /*
             $host ="localhost";
             $db = "nicatrip_datos";
             $user = 'nicatrip_datos';
             $pass = 'sistemas123';
-             */
+            */
 
             self:: $mysqli =new mysqli($host, $user, $pass,$db);
             if( self :: $mysqli -> connect_error)
             {
+
                  self :: $mysqli -> close();
                  self :: $mysqli = null;
             }
@@ -40,6 +73,10 @@
         {
             session_start();
             $_SESSION['session'] = null;
+            $_SESSION['id_usuario'] = null;
+            $_SESSION['id_empleado'] = null;
+            $_SESSION['role'] = null;
+            $_SESSION['foto'] = null;
             session_unset();
             session_destroy();
             header('Location: ?view=index');
@@ -60,7 +97,7 @@
             return $string;
         }
 
-        public static function filterAuthorization()
+        public static function filterAccess()
         {
             #$isSessionActive = (session_status() == PHP_SESSION_ACTIVE);
             $isSessionActive = isset($_SESSION);
@@ -72,33 +109,73 @@
             {
                 if($_SESSION['session']!='active')
                 {
-                    header('Location: ../index.php');
+                    header('Location: index.php');
                 }
             }
             else
             {
-                header('Location: ../index.php');
+                    header('Location: index.php');
             }
-        }
 
-        public static function sessionStart()
+        }
+        public static function initSession()
         {
             #$isSessionActive = (session_status() == PHP_SESSION_ACTIVE);
             $isSessionActive = isset($_SESSION);
-            if( ! $isSessionActive)
+            if(!$isSessionActive)
             {
                 session_start();
             }
         }
 
-        public static function cleanInput($string)
+
+        public static function filterInput($string)
         {
+            self :: connect();
             $string = htmlspecialchars($string);
-            self::connect();
             $string = self::getConnection() -> real_escape_string($string);
-            self::close();
+            self :: close();
             return $string;
         }
 
+        /*
+                Obtención de IP del visitante
+        */
+        function getIp()
+        {
+
+            if (isset($_SERVER["HTTP_CLIENT_IP"]))
+            {
+                return $_SERVER["HTTP_CLIENT_IP"];
+            }
+            elseif (isset($_SERVER["HTTP_X_FORWARDED_FOR"]))
+            {
+                return $_SERVER["HTTP_X_FORWARDED_FOR"];
+            }
+            elseif (isset($_SERVER["HTTP_X_FORWARDED"]))
+            {
+                return $_SERVER["HTTP_X_FORWARDED"];
+            }
+            elseif (isset($_SERVER["HTTP_FORWARDED_FOR"]))
+            {
+                return $_SERVER["HTTP_FORWARDED_FOR"];
+            }
+            elseif (isset($_SERVER["HTTP_FORWARDED"]))
+            {
+                return $_SERVER["HTTP_FORWARDED"];
+            }
+            else
+            {
+                return $_SERVER["REMOTE_ADDR"];
+            }
+        }
+        function generarCodigo($longitud)
+        {
+             $key = '';
+             $pattern = '1234567890abcdefghijklmnopqrstuvwxyz';
+             $max = strlen($pattern)-1;
+             for($i=0;$i < $longitud;$i++) $key .= $pattern{mt_rand(0,$max)};
+             return $key;
+        }
     }
 ?>

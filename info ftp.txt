@@ -1,0 +1,4 @@
+Nombre de usuario de FTP: ebcosistema@tecnocompnicaragua.com
+Servidor FTP: ftp.tecnocompnicaragua.com
+Contraseña: $$tecno
+Puerto FTPS explícito de FTP &:  21 

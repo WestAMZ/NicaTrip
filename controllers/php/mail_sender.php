@@ -1,7 +1,7 @@
 <?php
     class MailSender
     {
-        static function sendCountInfo($destine,$user,$pass,$activation)
+        static function sendCountInfo($destine,$user,$pass)
         {
             $mail = new PHPMailer();
             $mail->From     = MAIL_ADDRESS;
@@ -12,16 +12,14 @@
             */
             $mail->WordWrap = 50;
             $mail->IsHTML(true);
-            $mail->Subject  =  'Datos de confirmación de registro';
+            $mail->Subject  =  'Datos de cuenta EBCO Systems';
             /*
                 Cuerpo del correo
             */
             $mail->Body =
-            "<h1>Bienvenido a NicaTrip</h1>\n<br />"+
-            "<strong>Usuario:</strong> $user \n<br />".
-            "<strong>Password:</strong> $pass \n<br />".
-            "<strong>Link de activación de cuenta :</strong>".
-            " <a href='$activation'>has click para ctivar tu cuenta</a>  \n<br />";
+            "<h1>EBCO Systems</h1>\n<br/>"+
+            "<strong>Correo de acceso:</strong>$user \n<br/>".
+            "<strong>Password:</strong>$pass \n<br />";
             /*
                 Datos del servidor SMTP
             */

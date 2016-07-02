@@ -1,2 +1,0 @@
-# NicaTrip
-# NicaTrip
